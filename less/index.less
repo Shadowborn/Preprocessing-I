@@ -57,31 +57,50 @@ html, body {
 	height: 100%;
 	font-size: 62.5%; 
 }
+p {
+	line-height: 1.25;
+	margin: 20px 0;
+	font-size: 1.8rem;
+  }
+h2 {
+	line-height: 1.25;
+	margin: 20px 0;
+	font-size: 2rem;
+  }
 
 //variables
 @main-color: rgb(55, 55, 255);
+@keyframes blink { 
+	50% { border-color: #ff0000; } 
+ }
+ .bordertest{ /*Any element I want to flash for testing*/
+	 animation: blink .5s step-end infinite alternate;
+ }
 
 //mixins
+.bordertest(){
+	border:1px solid blue;
+}
 
 //everything else
 .container{
-	max-width:1200px;
-	margin: 0 auto;
-}
+	width: 1000px;
+    margin: 0 auto;
+
 header {
 	border-bottom: 1px solid black;
 	margin: 20px 0;
 	padding: 20px 0;
 	display: flex;
-	justify-content: space-evenly;
-  
-	@media( max-width: 515px ) {
+	justify-content: space-between;
+	
+	@media(max-width: 515px) {
 	  flex-direction: column;
 	  align-items: center;
 	}
 	
 	h1 {
-	  font-size: 2rem;
+	  font-size: 2.2rem;
 	  
 	  @media( max-width: 515px ) {
 		margin-bottom: 20px;
@@ -90,22 +109,46 @@ header {
 	
 	nav {
 	  margin-left: 62px;
-	  border:1px solid black;
-	  padding:10px;
-	  
+	  padding: 10px 0px 10px;
+	  border-radius: 4px;
 	  
 	  @media( max-width: 515px ) {
 		margin-left: 0;
 	  }
 	  
 	  a {
-		margin-left: 20px;
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		text-decoration: none;
+		border:1px solid black;
+		padding:10px;
+		background-color: rgba(27, 68, 99, 0.747);
+		color:white;
 	  }
-	  
+	  a:hover {
+		background-color:rgba(7, 60, 87, 0.377);
+	  }
 	  .first-anchor {
 		margin-left: 0;
 	  }
 	}// nav
   } // header
+
+  .main-content {
+	display: flex;
+	flex-wrap: wrap;
+	.bordertest;
+	
+	@media( max-width: 515px ) {
+	  flex-direction: column;
+	}
+	section {
+	  margin: 20px 2.5%;
+	  width: 45%;
+	  
+
+	  @media( max-width: 515px ) {
+		width: 90%;
+	  }
+	}//section
+  }//main content
+}
