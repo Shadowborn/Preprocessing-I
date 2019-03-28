@@ -314,3 +314,15 @@ header nav a:hover {
 .title-held {
   color: #3687f1;
 }
+.top-content {
+  background: rgba(223, 223, 223, 0.425);
+  padding: 20px;
+  border-radius: 10%;
+  border: 1px solid black;
+}
+.bottom-content {
+  background: rgba(223, 223, 223, 0.425);
+  padding: 20px;
+  border-radius: 10%;
+  border: 1px solid black;
+}
