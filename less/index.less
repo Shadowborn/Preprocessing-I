@@ -69,42 +69,109 @@ h2 {
   }
 
 //variables
-@main-color: rgb(55, 55, 255);
-@keyframes blink { 
-	50% { border-color: #ff0000; } 
- }
- .bordertest{ /*Any element I want to flash for testing*/
-	 animation: blink .5s step-end infinite alternate;
- }
+@main-color: rgb(54, 135, 241);
+ 
 
 //mixins
 .bordertest(){
 	border:1px solid blue;
 }
 
+//animations
+/**
+ * ----------------------------------------
+ * animation slide-in-bck-center
+ * ----------------------------------------
+ */
+ .slide-in-bck-center {
+	-webkit-animation: slide-in-bck-center 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-bck-center 1.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+ @-webkit-keyframes slide-in-bck-center {
+	0% {
+	  -webkit-transform: translateZ(600px);
+			  transform: translateZ(600px);
+	  opacity: 0;
+	}
+	100% {
+	  -webkit-transform: translateZ(0);
+			  transform: translateZ(0);
+	  opacity: 1;
+	}
+  }
+  @keyframes slide-in-bck-center {
+	0% {
+	  -webkit-transform: translateZ(600px);
+			  transform: translateZ(600px);
+	  opacity: 0;
+	}
+	100% {
+	  -webkit-transform: translateZ(0);
+			  transform: translateZ(0);
+	  opacity: 1;
+	}
+  }
+
+}
+/**
+ * ----------------------------------------
+ * slide-in-bck-center END
+ * ----------------------------------------
+ */
+
+
+/**
+ * ----------------------------------------
+ * Border blink animation for James testing
+ * ----------------------------------------
+ */
+ .bordertest{ /*Any element I want to flash for testing*/
+	 animation: blink .5s step-end infinite alternate;
+	 @keyframes blink { 
+		50% { border-color: #ff0000; } 
+	 }
+ }
+ /**
+ * ----------------------------------------
+ * Border blink animation END
+ * ----------------------------------------
+ */
+
 //everything else
 .container{
 	width: 1000px;
-    margin: 0 auto;
+	margin: 0 auto;
+}
 
+h1 {
+	font-size: 2.2rem;
+	
+	@media( max-width: 515px ) {
+	  margin-bottom: 20px;
+	}
+  }
 header {
 	border-bottom: 1px solid black;
 	margin: 20px 0;
 	padding: 20px 0;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
+    align-items: center;
 	
 	@media(max-width: 515px) {
 	  flex-direction: column;
 	  align-items: center;
 	}
-	
-	h1 {
-	  font-size: 2.2rem;
-	  
-	  @media( max-width: 515px ) {
-		margin-bottom: 20px;
-	  }
+	.logo {
+		border-radius: 50%;
+		width:10%;
+		height:10%;
+		border:2px solid rgb(16, 175, 223);
+		.slide-in-bck-center;
+	}
+	.h1Image {
+		width: 80%;
+		margin: 0% 10% 0% 10%;
 	}
 	
 	nav {
@@ -125,10 +192,7 @@ header {
 		color:white;
 	  }
 	  a:hover {
-		background-color:rgba(7, 60, 87, 0.377);
-	  }
-	  .first-anchor {
-		margin-left: 0;
+		background-color:rgba(24, 178, 255, 0.377);
 	  }
 	}// nav
   } // header
@@ -151,4 +215,6 @@ header {
 	  }
 	}//section
   }//main content
-}
+  .title-held{
+	  color: @main-color;
+  }

@@ -145,51 +145,136 @@ h2 {
   margin: 20px 0;
   font-size: 2rem;
 }
+/**
+ * ----------------------------------------
+ * animation slide-in-bck-center
+ * ----------------------------------------
+ */
+.slide-in-bck-center {
+  -webkit-animation: slide-in-bck-center 1.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-bck-center 1.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@-webkit-keyframes slide-in-bck-center {
+  0% {
+    -webkit-transform: translateZ(600px);
+    transform: translateZ(600px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bck-center {
+  0% {
+    -webkit-transform: translateZ(600px);
+    transform: translateZ(600px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+/**
+ * ----------------------------------------
+ * slide-in-bck-center END
+ * ----------------------------------------
+ */
+/**
+ * ----------------------------------------
+ * Border blink animation for James testing
+ * ----------------------------------------
+ */
+.bordertest {
+  /*Any element I want to flash for testing*/
+  animation: blink 0.5s step-end infinite alternate;
+}
 @keyframes blink {
   50% {
     border-color: #ff0000;
   }
 }
-.bordertest {
-  /*Any element I want to flash for testing*/
-  animation: blink 0.5s step-end infinite alternate;
-}
+/**
+ * ----------------------------------------
+ * Border blink animation END
+ * ----------------------------------------
+ */
 .container {
   width: 1000px;
   margin: 0 auto;
 }
-.container header {
+h1 {
+  font-size: 2.2rem;
+}
+@media (max-width: 515px) {
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+header {
   border-bottom: 1px solid black;
   margin: 20px 0;
   padding: 20px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
 }
 @media (max-width: 515px) {
-  .container header {
+  header {
     flex-direction: column;
     align-items: center;
   }
 }
-.container header h1 {
-  font-size: 2.2rem;
+header .logo {
+  border-radius: 50%;
+  width: 10%;
+  height: 10%;
+  border: 2px solid #10afdf;
+  -webkit-animation: slide-in-bck-center 1.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-bck-center 1.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-@media (max-width: 515px) {
-  .container header h1 {
-    margin-bottom: 20px;
+@-webkit-keyframes slide-in-bck-center {
+  0% {
+    -webkit-transform: translateZ(600px);
+    transform: translateZ(600px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
   }
 }
-.container header nav {
+@keyframes slide-in-bck-center {
+  0% {
+    -webkit-transform: translateZ(600px);
+    transform: translateZ(600px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+header .h1Image {
+  width: 80%;
+  margin: 0% 10% 0% 10%;
+}
+header nav {
   margin-left: 62px;
   padding: 10px 0px 10px;
   border-radius: 4px;
 }
 @media (max-width: 515px) {
-  .container header nav {
+  header nav {
     margin-left: 0;
   }
 }
-.container header nav a {
+header nav a {
   font-size: 1.6rem;
   text-decoration: none;
   border: 1px solid black;
@@ -197,30 +282,35 @@ h2 {
   background-color: rgba(27, 68, 99, 0.747);
   color: white;
 }
-.container header nav a:hover {
-  background-color: rgba(7, 60, 87, 0.377);
+header nav a:hover {
+  background-color: rgba(24, 178, 255, 0.377);
 }
-.container header nav .first-anchor {
-  margin-left: 0;
-}
-.container .main-content {
+.main-content {
   display: flex;
   flex-wrap: wrap;
+  border: 1px solid blue;
   /*Any element I want to flash for testing*/
   animation: blink 0.5s step-end infinite alternate;
-  border: 1px solid blue;
+}
+@keyframes blink {
+  50% {
+    border-color: #ff0000;
+  }
 }
 @media (max-width: 515px) {
-  .container .main-content {
+  .main-content {
     flex-direction: column;
   }
 }
-.container .main-content section {
+.main-content section {
   margin: 20px 2.5%;
   width: 45%;
 }
 @media (max-width: 515px) {
-  .container .main-content section {
+  .main-content section {
     width: 90%;
   }
+}
+.title-held {
+  color: #3687f1;
 }
